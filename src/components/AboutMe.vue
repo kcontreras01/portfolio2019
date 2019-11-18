@@ -58,8 +58,9 @@
 import axios from 'axios'
 
 export default {
-  data: () => ({
-    skills: [
+  data() {
+    return {
+      skills: [
       { name: "PHP", icon: "mdi-language-php"},
       { name: "Laravel", icon: "mdi-laravel"},
       { name: "VueJS", icon: "mdi-vuejs"},
@@ -73,9 +74,10 @@ export default {
       { name: "PSQL", icon: ""},
     ],
     allArticles: null,
-  }),
-
-  mounted () {
+    }
+  },
+    
+  created () {
     axios
       .get('https://dev.to/api/articles?username=kiarathedev')
       .then(response => (this.allArticles = response.data))
